@@ -1,0 +1,24 @@
+---
+- name: This playbook creates a file or directory
+  hosts: all
+  become: true
+  tasks:
+  - name: Create a file
+    file:
+      path: /home/ansadmin/demofile
+      state: touch
+
+  - name: create a directory
+    file:
+      path: /home/ansadmin/demodir
+      state: directory
+
+  - name: delete directory
+    file:
+      path: /home/ansadmin/demodir
+      state: absent
+
+  - name: delete file
+    file:
+      path: /home/ansadmin/demofile
+      state: absent
