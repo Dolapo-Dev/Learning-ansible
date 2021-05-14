@@ -5,5 +5,14 @@
   tasks:
   - name: install packages
     yum:
-      name: ['git', 'make', 'gcc', 'wget', 'telnet', 'gzip']
+      # name: ['git', 'make', 'gcc', 'wget', 'telnet', 'gzip']
+      name: "{{ item }}"
       state: installed
+    with_items:
+      - git
+      - make
+      - gzip
+      - tree
+      - gcc
+      - wget
+      - telnet

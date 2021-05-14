@@ -2,7 +2,22 @@
 - name: This playbook is the start of our independent study of ansible
   hosts: all
   become: true
+  # vars:
+  #  user: Ayomide (the user variable has now been created in the vars_file, user.yml)
+  vars_files:
+    - user.yml
   tasks:
-  - name: Create user John   
+  - name: Create user {{ user }}   
     user: 
-      name: John
+      name: "{{ user }}"
+
+
+ # The variable declared in the playbook command takes priority, to create a user from a playbook command use
+ # ansible-playbook -i hosts create_user.yml --extra-vars "user=sonia"  (note that "user" is a defined var) OR
+ # ansible-playbook -i hosts create_user.yml -e "user=sonia"
+ #
+ #
+
+
+
+
