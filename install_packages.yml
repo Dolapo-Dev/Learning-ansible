@@ -5,5 +5,5 @@
   tasks:
   - name: install packages
     yum:
-      name: git
+      name: ['git', 'make', 'gcc', 'wget', 'telnet', 'gzip']
       state: installed
