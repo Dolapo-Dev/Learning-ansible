@@ -1,0 +1,11 @@
+---
+- name: Ansible playbook to test vault, incorporating git
+  hosts: all
+  become: true
+  vars_files:
+    - vault-passwd.yml
+  tasks:
+  - name: clone a repo
+    git:
+      repo: https://Dolapo-Dev:{{ password }}@github.com/Dolapo-Dev/vault.git
+      dest: /opt/ansadmin/test-vault
